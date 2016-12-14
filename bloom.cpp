@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <string>
 #include <bitset>
-#include "Bloom.h" 
+#include "bloom.h" 
 #include <cstring>
 using namespace std;
 
