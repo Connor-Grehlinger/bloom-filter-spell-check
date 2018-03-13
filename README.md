@@ -9,5 +9,6 @@ word results in a bitset index with the bit set to '1', then the word is in the 
 thus is considered spelled correctly). If any the hashes result in an index with a bit set to '0', the word is considered 
 mis-spelled. 
 
-To run, use the included makefile (enter 'make' command in project directory)
+To run, use the included makefile (enter 'make' command in project directory). 
+
 Usage is: ./spell_check <file_to_check> <dictionary_to_use>
