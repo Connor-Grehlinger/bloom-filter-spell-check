@@ -1,14 +1,13 @@
-#include <iostream>
 #include <cstdlib>
 #include <string>
 #include <bitset>
 #include "bloom.h" 
-#include <cstring>
-using namespace std;
+
+
 
 // a bloom filter is created as a bitset with TABLE_SIZE number of bits
 
-void Bloom::insert(string key){
+void Bloom::insert(std::string key){
     unsigned int seed = 5;
     for (int i = 0; i < NUM_HASHES; i++){
         unsigned int hash = MurmurHash2(&*key.begin(), key.length(), seed);
@@ -18,9 +17,7 @@ void Bloom::insert(string key){
 }
 
 
-// If the key (word) gets a hit on the hash table ("dictionary") for every seed of the hash function,
-// it can be considered a valid word for the spell checker 
-bool Bloom::is_in(string key){
+bool Bloom::is_in(std::string key){
     unsigned int seed = 5;
     for (int i = 0; i < NUM_HASHES; i++){
         unsigned int hash = MurmurHash2(&*key.begin(), key.length(), seed);
@@ -37,8 +34,7 @@ bool Bloom::is_in(string key){
 
 
 //-----------------------------------------------------------------------------
-// MurmurHash2, by Austin Appleby (algorithm once used by google for hashing)
-// you change change the seed to get multiple hashes per word
+// MurmurHash2, by Austin Appleby
 
 unsigned int Bloom::MurmurHash2 (const void * key, int len, unsigned int seed )
 {
@@ -69,3 +65,6 @@ unsigned int Bloom::MurmurHash2 (const void * key, int len, unsigned int seed )
 	h ^= h >> 15;
 	return h % TABLE_SIZE;
 } 
+
+
+
